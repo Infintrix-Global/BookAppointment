@@ -15,10 +15,6 @@ namespace BookAppointment
         void DoWork();
 
 
-        public void as()
-            {
-
-
 
     }
 }
