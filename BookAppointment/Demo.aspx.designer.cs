@@ -10,7 +10,7 @@
 
 namespace BookAppointment
 {
-    public partial class WebForm1
+    public partial class Demo
     {
 
         /// <summary>
