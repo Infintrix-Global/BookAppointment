@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -10,6 +12,11 @@ namespace BookAppointment.BAL_Classes
 {
     public class Common
     {
+
+        public CultureInfo GetCurrentCulture()
+        {
+            return CultureInfo.GetCultureInfo(ConfigurationManager.AppSettings["Culture"]);
+        }
         public string Encrypt(string clearText)
         {
             string EncryptionKey = "MAKV2SPBNI99212";
@@ -97,5 +104,146 @@ namespace BookAppointment.BAL_Classes
 
     }
 
+
+    public class Category
+    {
+
+        public string CategoryId { get; set; }
+        public string CategoryName { get; set; }
+
+    }
+    public class CheckCategory
+    {
+        public List<Category> data { get; set; }
+        public string message { get; set; }
+        public string status { get; set; }
+
+    }
+
+
+    public class BookAppointmentSlots
+    {
+
+        public string CompanyId { get; set; }
+        public string SlotsTime { get; set; }
+
+    }
+    public class CheckBookAppointmentSlots
+    {
+        public List<BookAppointmentSlots> data { get; set; }
+        public string message { get; set; }
+        public string status { get; set; }
+
+    }
+
+
+
+    public class checkAddBookAppointment
+    {
+        public string status { get; set; }
+        public long Appointmentid { get; set; }
+        public string message { get; set; }
+        // public AddAppointment Data { get; set; }
+    }
+
+
+    public class checkCancelBookAppointment
+    {
+        public string status { get; set; }
+        public long Appointmentid { get; set; }
+        public string message { get; set; }
+        // public AddAppointment Data { get; set; }
+    }
+
+
+    public class CompanyDetails
+    {
+
+        public string CompanyId { get; set; }
+        public string CompanyName { get; set; }
+        public string OwnerName { get; set; }
+        public string ContactNo { get; set; }
+        public string Address { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
+        public string OpenTime { get; set; }
+        public string CloseingTime { get; set; }
+        public string CategoryName { get; set; }
+
+        public List<CompanyServices> Services { get; set; }
+
+    }
+    public class CheckCompanyDetails
+    {
+        public List<CompanyDetails> data { get; set; }
+        public string message { get; set; }
+        public string status { get; set; }
+
+    }
+
+
+
+
+
+    public class CompanyServices
+    {
+
+        public string ServicesId { get; set; }
+        public string ServicesName { get; set; }
+        public string CompanyServicesId { get; set; }
+        public string CompanyId { get; set; }
+        public string TimeSlots { get; set; }
+
+        public string TimeInterval { get; set; }
+
+    }
+    public class CheckCompanyServices
+    {
+        public List<CompanyServices> data { get; set; }
+        public string message { get; set; }
+        public string status { get; set; }
+
+    }
+
+
+
+    //------------------
+
+    public class BookAppointmentList
+    {
+        public string BookAppointmentId { get; set; }
+        public string UserId { get; set; }
+        public string CompanyId { get; set; }
+        public string TimeSlots { get; set; }
+        public string BookingDate { get; set; }
+      
+    }
+    public class CheckBookAppointmentList
+    {
+        public List<BookAppointmentList> data { get; set; }
+        public string message { get; set; }
+        public string status { get; set; }
+
+    }
+
+
+    public class BookAppointmentUserList
+    {
+        public string BookAppointmentId { get; set; }
+        public string UserId { get; set; }
+        public string BookingSlots { get; set; }
+        public string BookingDate { get; set; }
+        public string CompanyName { get; set; }
+        public string MobileNo { get; set; }
+        public string Address { get; set; }
+        public string Status { get; set; }
+    }
+    public class CheckBookAppointmentUserList
+    {
+        public List<BookAppointmentUserList> data { get; set; }
+        public string message { get; set; }
+        public string status { get; set; }
+
+    }
 
 }
